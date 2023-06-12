@@ -31,7 +31,7 @@ def parse_command():
     parser.add_argument('--y-target', default="all", type=str, metavar='OUTPUT_target', choices=["end", "all"],
                         help='When calculating loss function!')
     ########## Learning Params ##########
-    parser.add_argument('--gpu', default="1")
+    parser.add_argument('--gpu', default="0")
     parser.add_argument('-v', '--validation-interval', default=1, type=int, metavar='VI',
                         help='Validation interval. The number of data loading workers (default: 10)')
     parser.add_argument('-j', '--workers', default=0, type=int, metavar='N',
@@ -95,7 +95,7 @@ def get_output_directory(args):
         format(args.memo, args.data, args.y_target, args.seq_len, args.x_interval, args.x_stride,
             args.arch, args.criterion, args.lr, args.decay_rate, args.decay_step, args.batch_size))
 
-    if output_directory.split("/")[1] in os.listdir('results'):
+    if output_directory.split("\\")[1] in os.listdir('results'):
         from random import random
         output_directory = output_directory + "_" + str(int(random() * 10000))
     return output_directory
