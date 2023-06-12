@@ -16,10 +16,6 @@ from dataloaders.Scaler import DataScaler
 from dataloaders.datacontainer import ResultContainer
 from metrics import *
 
-args = utils.parse_command()
-print(args)
-
-# torch.cuda.empty_cache()
 
 os.environ['CUDA_DEVICE_ORDER']='PCI_BUS_ID'
 
